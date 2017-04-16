@@ -25,9 +25,12 @@ This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
 For The MovieDB REST calls to work you will need to replace the fake key
-that can be found at `/app/java/filmy.nelk.io.filmy/retrofit/MovieDBKey` with
-your own API key, more information on how to obtain an API Key can be found
-here : https://developers.themoviedb.org/3/getting-started.
+located at `/app/java/filmy.nelk.io.filmy/retrofit/MovieDBKey` with your
+own API key, more information on how to obtain an API Key for MovieDB can
+be found here : https://developers.themoviedb.org/3/getting-started.
+
+To untrack said file when/if you clone this repo use :
+`git update-index --assume-unchanged /<Path>/MovieDBKey.java`
 
 Support
 -------
