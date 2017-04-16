@@ -13,15 +13,21 @@ https://www.themoviedb.org/documentation/api
 Pre-requisites
 --------------
 
-- Android SDK v23
-- Android Build Tools v23.0.2
-- Android Support Repository v23.3.0
+- Android SDK v25
+- Android Build Tools v25.2.0
+- Android Support Repository v25.2.0
+- Replace fake MovieDB API Key with your own.
 
 Getting Started
 ---------------
 
 This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
+
+For The MovieDB REST calls to work you will need to replace the fake key
+that can be found at `/app/java/filmy.nelk.io.filmy/retrofit/MovieDBKey` with
+your own API key, more information on how to obtain an API Key can be found
+here : https://developers.themoviedb.org/3/getting-started.
 
 Support
 -------
