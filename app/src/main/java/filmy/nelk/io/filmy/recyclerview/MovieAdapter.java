@@ -19,10 +19,12 @@ import filmy.nelk.io.filmy.utils.MovieUtils;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder>{
     public static final String TAG = MovieAdapter.class.getSimpleName();
 
-    private final List<Movie> mMovies;
+    private List<Movie> mMovies;
+    private LayoutInflater mInflater;
     private Context mContext;
 
     public MovieAdapter(Context context, List<Movie> moviesList) {
+        mInflater = LayoutInflater.from(context);
         mContext = context;
         mMovies = moviesList;
     }
@@ -30,12 +32,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     // Inflate item Layout and return inflated ViewHolder
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-        boolean attachToParentImmediately = false;
-
         // Inflate layout
-        View movieView = inflater.inflate(R.layout.movie_grid_item, parent, attachToParentImmediately);
+        View movieView = mInflater.inflate(R.layout.movie_grid_item, parent, false);
 
         // New ViewHolder instance
         MovieViewHolder movieViewHolder = new MovieViewHolder(movieView);
@@ -47,10 +45,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         // Get movie from list based on position
         Movie movie = mMovies.get(position);
-
-        // TODO : Remove debugging
-        Log.d(TAG, movie.getTitle());
-        Log.d(TAG, MovieUtils.buildPosterPath(movie.getPosterPath()));
 
         // Get reference view items
         ImageView poster = holder.mPoster;

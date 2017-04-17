@@ -9,8 +9,9 @@ public class APIConfig {
     public static final String MDB_TOP_RATED        = "movie/top_rated";
     public static final String MDB_POPULAR          = "movie/popular";
 
-    public static final String MDB_BASE_IMAGE       = "https://image.tmdb.org/t/p/";
-    public static final String MDB_SIZE             = "w185";
+    public static final String MDB_BASE_IMAGE_URL   = "https://image.tmdb.org/t/p/";
+    public static final String MDB_IMAGE_SIZE_S     = "w185";
+    public static final String MDB_IMAGE_SIZE_L     = "w500";
 
 
 }

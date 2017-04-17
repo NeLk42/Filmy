@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_movies_grid);
 
         // Attach LayoutManager to RecyclerView
-        GridLayoutManager gridLayoutManager =
-                new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
         // Attach Adapter to RecyclerView

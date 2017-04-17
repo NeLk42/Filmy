@@ -1,11 +1,19 @@
 package filmy.nelk.io.filmy.retrofit.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Movie {
 
+    @SerializedName("original_title")
     String title;
+    @SerializedName("overview")
     String overview;
-    String popularity;
-    String poster_path;
+    @SerializedName("vote_average")
+    String rating;
+    @SerializedName("release_date")
+    String releaseDate;
+    @SerializedName("poster_path")
+    String posterPath;
 
     public String getTitle() {
         return title;
@@ -23,20 +31,20 @@ public class Movie {
         this.overview = overview;
     }
 
-    public String getPopularity() {
-        return popularity;
+    public String getRating() {
+        return rating;
     }
 
-    public void setPopularity(String popularity) {
-        this.popularity = popularity;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public String getPosterPath() {
-        return poster_path;
+        return posterPath;
     }
 
-    public void setPosterPath(String posterPath) {
-        this.poster_path = posterPath;
+    public void setPosterPath(String path) {
+        this.posterPath = path;
     }
 
 }
