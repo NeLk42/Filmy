@@ -13,6 +13,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MovieDBAPI movieDBAPI = new MovieDBAPI();
-        movieDBAPI.getPopular();
+        movieDBAPI.getPopular(mAdapter, movies);
     }
 }

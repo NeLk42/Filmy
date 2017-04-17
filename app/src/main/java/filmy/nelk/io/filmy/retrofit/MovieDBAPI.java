@@ -4,7 +4,9 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.List;
 
+import filmy.nelk.io.filmy.recyclerview.MovieAdapter;
 import filmy.nelk.io.filmy.retrofit.Models.Movie;
 import filmy.nelk.io.filmy.retrofit.Models.MoviesList;
 import retrofit2.Call;
@@ -17,12 +19,15 @@ public class MovieDBAPI implements Callback<MoviesList>{
 
     public static final String TAG = MovieDBAPI.class.getSimpleName();
 
-    public void getPopular() {
-        Log.d(TAG, "Getting Popular");
+    public List<Movie> moviesList;
+    public MovieAdapter mAdapter;
+
+    public void getPopular(MovieAdapter adapter, List<Movie> rvList) {
+        this.mAdapter = adapter;
+        this.moviesList = rvList;
+
         MovieDBService mDBService = getMovieDBService();
-        Log.d(TAG, "Loading PopularMovies");
         Call<MoviesList> call = mDBService.loadPopularMovies(APIConfig.MDB_API_KEY);
-        Log.d(TAG, "Enqueing");
         call.enqueue(this);
     }
 
@@ -43,15 +48,11 @@ public class MovieDBAPI implements Callback<MoviesList>{
 
     @Override
     public void onResponse(Call<MoviesList> call, Response<MoviesList> response) {
-        Log.d(TAG, "onResponse");
         if(response.isSuccessful()){
-            Log.d(TAG, "Response Successful");
             MoviesList movies = response.body();
-            Log.d(TAG, "I has body");
-            for (Movie movie : movies.getResults()) {
-                //TODO : Handle info
-                Log.d(TAG, "Movie " + movie.getTitle());
-            }
+            moviesList.clear();
+            moviesList.addAll(movies.getResults());
+            mAdapter.notifyDataSetChanged();
         } else {
             try {
                 Log.d(TAG, response.errorBody().string());
