@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MovieAdapter(this, movies);
         mRecyclerView.setAdapter(mAdapter);
 
-        //
+        // Call to MovieDB to retrieve data and update RecyclerView
         MovieDBAPI movieDBAPI = new MovieDBAPI();
         movieDBAPI.getPopular(mAdapter, movies);
     }
