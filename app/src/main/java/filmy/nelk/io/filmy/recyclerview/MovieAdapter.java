@@ -22,11 +22,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private List<Movie> mMovies;
     private LayoutInflater mInflater;
     private Context mContext;
+    private MovieClickListener mMovieClickListener;
 
-    public MovieAdapter(Context context, List<Movie> moviesList) {
+    public MovieAdapter(Context context, List<Movie> moviesList, MovieClickListener listener) {
         mInflater = LayoutInflater.from(context);
         mContext = context;
         mMovies = moviesList;
+        mMovieClickListener = listener;
     }
 
     // Inflate item Layout and return inflated ViewHolder
@@ -60,12 +62,22 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return mMovies.size();
     }
 
-    class MovieViewHolder extends RecyclerView.ViewHolder {
+    public interface MovieClickListener {
+        public void onMovieItemClick (int clickIndex);
+    }
+
+    class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView mPoster;
 
         MovieViewHolder(View itemView) {
             super(itemView);
             this.mPoster = (ImageView) itemView.findViewById(R.id.iv_poster);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            mMovieClickListener.onMovieItemClick(getAdapterPosition());
         }
     }
 }
