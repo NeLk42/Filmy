@@ -5,6 +5,7 @@ public class Movie {
     String title;
     String overview;
     String popularity;
+    String poster_path;
 
     public String getTitle() {
         return title;
@@ -29,4 +30,13 @@ public class Movie {
     public void setPopularity(String popularity) {
         this.popularity = popularity;
     }
+
+    public String getPosterPath() {
+        return poster_path;
+    }
+
+    public void setPosterPath(String posterPath) {
+        this.poster_path = posterPath;
+    }
+
 }

@@ -8,6 +8,9 @@ public class APIConfig {
     public static final String MDB_BASE_URL         = "http://api.themoviedb.org/3/";
     public static final String MDB_TOP_RATED        = "movie/top_rated";
     public static final String MDB_POPULAR          = "movie/popular";
+
+    public static final String MDB_BASE_IMAGE       = "https://image.tmdb.org/t/p/";
     public static final String MDB_SIZE             = "w185";
+
 
 }
