@@ -7,7 +7,6 @@ import filmy.nelk.io.filmy.retrofit.MovieDBAPI;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

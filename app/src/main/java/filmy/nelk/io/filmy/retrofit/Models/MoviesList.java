@@ -2,10 +2,6 @@ package filmy.nelk.io.filmy.retrofit.Models;
 
 import java.util.List;
 
-/**
- * Created by NeLk on 16/04/2017.
- */
-
 public class MoviesList {
 
     public Integer page;
