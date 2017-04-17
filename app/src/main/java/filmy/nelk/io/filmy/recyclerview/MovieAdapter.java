@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -54,13 +53,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         Log.d(TAG, MovieUtils.buildPosterPath(movie.getPosterPath()));
 
         // Get reference view items
-        TextView title = holder.mTitle;
-        TextView rating = holder.mRating;
         ImageView poster = holder.mPoster;
 
         // Set movie views based on views and network data
-        title.setText(movie.getTitle());
-        rating.setText(movie.getPopularity());
         Picasso.with(mContext)
                 .load(MovieUtils.buildPosterPath(movie.getPosterPath()))
                 .into(poster);
@@ -72,15 +67,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder {
-
-        TextView mTitle;
-        TextView mRating;
         ImageView mPoster;
 
         MovieViewHolder(View itemView) {
             super(itemView);
-            this.mTitle = (TextView) itemView.findViewById(R.id.tv_title);
-            this.mRating = (TextView) itemView.findViewById(R.id.tv_rating);
             this.mPoster = (ImageView) itemView.findViewById(R.id.iv_poster);
         }
     }
