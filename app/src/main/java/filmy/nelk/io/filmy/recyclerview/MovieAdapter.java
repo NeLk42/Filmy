@@ -2,7 +2,6 @@ package filmy.nelk.io.filmy.recyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +63,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     public interface MovieClickListener {
         public void onMovieItemClick (int clickIndex);
+    }
+
+    public void updateMovieList(List<Movie> movieList){
+        this.mMovies.clear();
+        this.mMovies.addAll(movieList);
+        notifyDataSetChanged();
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

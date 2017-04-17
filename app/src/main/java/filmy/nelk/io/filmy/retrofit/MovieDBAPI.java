@@ -50,9 +50,7 @@ public class MovieDBAPI implements Callback<MoviesList>{
     public void onResponse(Call<MoviesList> call, Response<MoviesList> response) {
         if(response.isSuccessful()){
             MoviesList movies = response.body();
-            moviesList.clear();
-            moviesList.addAll(movies.getResults());
-            mAdapter.notifyDataSetChanged();
+            mAdapter.updateMovieList(movies.getResults());
         } else {
             try {
                 Log.d(TAG, response.errorBody().string());
