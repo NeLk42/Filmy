@@ -23,7 +23,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         Intent storage = getIntent();
 
-        if (storage.hasExtra("itemPosition")){
+        if (storage.hasExtra("movie")){
             loadDetails(storage);
 
         } else {
@@ -32,8 +32,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void loadDetails(Intent storage) {
-        String itemPosition = storage.getExtras().getString("itemPosition");
-        Movie movie = mAdapter.mMovies.get(Integer.parseInt(itemPosition));
+        Movie movie = (Movie) storage.getExtras().get("movie");
 
         ImageView poster = (ImageView) findViewById(R.id.iv_details_poster);
         Picasso.with(this)

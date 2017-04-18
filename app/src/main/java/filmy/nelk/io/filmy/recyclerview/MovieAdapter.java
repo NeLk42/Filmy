@@ -47,7 +47,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
         // Get movie from list based on position
-        Movie movie = mMovies.get(position);
+        final Movie movie = mMovies.get(position);
 
         // Get reference view items
         ImageView poster = holder.mPoster;
@@ -56,6 +56,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         Picasso.with(mContext)
                 .load(MovieUtils.buildPosterPath(movie.getPosterPath()))
                 .into(poster);
+
+        // Attach clickListener to this item
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, DetailsActivity.class);
+                intent.putExtra("movie", movie);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
