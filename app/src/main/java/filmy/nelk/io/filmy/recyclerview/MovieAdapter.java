@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import filmy.nelk.io.filmy.DetailsActivity;
 import filmy.nelk.io.filmy.R;
 import filmy.nelk.io.filmy.retrofit.Models.Movie;
 import filmy.nelk.io.filmy.utils.MovieUtils;
@@ -39,7 +41,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         View movieView = mInflater.inflate(R.layout.movie_grid_item, parent, false);
 
         // New ViewHolder instance
-        MovieViewHolder movieViewHolder = new MovieViewHolder(movieView);
+        MovieViewHolder movieViewHolder = new MovieViewHolder(mContext, movieView);
         return movieViewHolder;
     }
 
@@ -73,18 +75,32 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         notifyDataSetChanged();
     }
 
+
+
+
+
+
+
     class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView mPoster;
+        public Context context;
 
-        MovieViewHolder(View itemView) {
+        MovieViewHolder(Context context, View itemView) {
             super(itemView);
             this.mPoster = (ImageView) itemView.findViewById(R.id.iv_poster);
+            this.context = context;
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            mMovieClickListener.onMovieItemClick(getAdapterPosition());
+            int position = getAdapterPosition();
+
+            mMovies.get(position);
+
+            Intent intent = new Intent(context, DetailsActivity.class);
+            intent.putExtra("itemPosition", mMovies.get(position).toString());
+            context.startActivity(intent);
         }
     }
 }

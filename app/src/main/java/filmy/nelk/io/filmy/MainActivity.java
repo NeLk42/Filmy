@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         }
         mToast = Toast.makeText(this, "Clickity", Toast.LENGTH_SHORT);
         mToast.show();
-        Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("itemPosition", mAdapter.mMovies.get(position).toString());
-        startActivityForResult(intent, 1);
+//        Intent intent = new Intent(this, DetailsActivity.class);
+//        intent.putExtra("itemPosition", mAdapter.mMovies.get(position).toString());
+//        startActivityForResult(intent, 1);
     }
 
 }
