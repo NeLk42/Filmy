@@ -44,11 +44,10 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         // Call to MovieDB to retrieve data and update RecyclerView
         MovieDBAPI movieDBAPI = new MovieDBAPI();
         movieDBAPI.getPopular(mAdapter, movies);
-
     }
 
     @Override
-    public void onMovieItemClick(int clickIndex) {
+    public void onMovieItemClick(int position) {
         //TODO: Use Intent to access Details Activity
         if (mToast != null){
             mToast.cancel();
