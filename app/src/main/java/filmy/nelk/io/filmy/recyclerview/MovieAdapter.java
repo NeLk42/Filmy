@@ -25,13 +25,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public List<Movie> mMovies;
     private LayoutInflater mInflater;
     private Context mContext;
-    //private MovieClickListener mMovieClickListener;
 
     public MovieAdapter(Context context, List<Movie> moviesList) {
         mInflater = LayoutInflater.from(context);
         mContext = context;
         mMovies = moviesList;
-        //mMovieClickListener = listener;
     }
 
     // Inflate item Layout and return inflated ViewHolder
@@ -41,7 +39,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         View movieView = mInflater.inflate(R.layout.movie_grid_item, parent, false);
 
         // New ViewHolder instance
-        MovieViewHolder movieViewHolder = new MovieViewHolder(mContext, movieView);
+        MovieViewHolder movieViewHolder = new MovieViewHolder(movieView);
         return movieViewHolder;
     }
 
@@ -73,12 +71,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     class MovieViewHolder extends RecyclerView.ViewHolder{
         ImageView mPoster;
-        public Context context;
-
-        MovieViewHolder(Context context, View itemView) {
+        MovieViewHolder(View itemView) {
             super(itemView);
             this.mPoster = (ImageView) itemView.findViewById(R.id.iv_poster);
-            this.context = context;
         }
     }
 }
