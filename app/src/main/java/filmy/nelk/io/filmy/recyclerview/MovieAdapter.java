@@ -1,11 +1,13 @@
 package filmy.nelk.io.filmy.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -18,7 +20,7 @@ import filmy.nelk.io.filmy.utils.MovieUtils;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder>{
     public static final String TAG = MovieAdapter.class.getSimpleName();
 
-    private List<Movie> mMovies;
+    public List<Movie> mMovies;
     private LayoutInflater mInflater;
     private Context mContext;
     private MovieClickListener mMovieClickListener;
@@ -62,7 +64,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public interface MovieClickListener {
-        public void onMovieItemClick (int clickIndex);
+        public void onMovieItemClick (int position);
     }
 
     public void updateMovieList(List<Movie> movieList){

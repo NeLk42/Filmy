@@ -39,6 +39,14 @@ public class Movie {
         this.rating = rating;
     }
 
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
     public String getPosterPath() {
         return posterPath;
     }
