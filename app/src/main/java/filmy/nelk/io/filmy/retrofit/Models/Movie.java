@@ -1,8 +1,11 @@
 package filmy.nelk.io.filmy.retrofit.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Movie {
+public class Movie implements Parcelable {
 
     @SerializedName("original_title")
     String title;
@@ -55,4 +58,39 @@ public class Movie {
         this.posterPath = path;
     }
 
+
+    protected Movie(Parcel in) {
+        title = in.readString();
+        overview = in.readString();
+        rating = in.readString();
+        releaseDate = in.readString();
+        posterPath = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(overview);
+        dest.writeString(rating);
+        dest.writeString(releaseDate);
+        dest.writeString(posterPath);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 }
