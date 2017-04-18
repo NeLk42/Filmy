@@ -1,20 +1,55 @@
 package filmy.nelk.io.filmy;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+import filmy.nelk.io.filmy.recyclerview.MovieAdapter;
+import filmy.nelk.io.filmy.retrofit.Models.Movie;
+import filmy.nelk.io.filmy.utils.MovieUtils;
 
 public class DetailsActivity extends AppCompatActivity {
+
+    private MovieAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        Intent storage = getIntent();
 
+        if (storage.hasExtra("itemPosition")){
+            loadDetails(storage);
+
+        } else {
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 
+    private void loadDetails(Intent storage) {
+        String itemPosition = storage.getExtras().getString("itemPosition");
+        Movie movie = mAdapter.mMovies.get(Integer.parseInt(itemPosition));
+
+        ImageView poster = (ImageView) findViewById(R.id.iv_details_poster);
+        Picasso.with(this)
+                .load(MovieUtils.buildPosterPath(movie.getPosterPath()))
+                .into(poster);
+
+        TextView title = (TextView) findViewById(R.id.tv_details_title);
+        title.setText(movie.getTitle());
+
+        TextView overview = (TextView) findViewById(R.id.tv_details_overview);
+        overview.setText(movie.getOverview());
+
+        TextView rating = (TextView) findViewById(R.id.tv_details_rating);
+        rating.setText(movie.getRating());
+
+        TextView release = (TextView) findViewById(R.id.tv_details_release);
+        release.setText(movie.getReleaseDate());
+    }
 }
