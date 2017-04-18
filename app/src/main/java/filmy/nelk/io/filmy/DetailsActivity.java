@@ -8,13 +8,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import filmy.nelk.io.filmy.recyclerview.MovieAdapter;
 import filmy.nelk.io.filmy.retrofit.Models.Movie;
 import filmy.nelk.io.filmy.utils.MovieUtils;
 
 public class DetailsActivity extends AppCompatActivity {
-
-    private MovieAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +22,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         if (storage.hasExtra("movie")){
             loadDetails(storage);
-
         } else {
             startActivity(new Intent(this, MainActivity.class));
         }
