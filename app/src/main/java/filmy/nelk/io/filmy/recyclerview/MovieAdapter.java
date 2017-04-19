@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -16,6 +14,7 @@ import java.util.List;
 
 import filmy.nelk.io.filmy.DetailsActivity;
 import filmy.nelk.io.filmy.R;
+import filmy.nelk.io.filmy.retrofit.APIConfig;
 import filmy.nelk.io.filmy.retrofit.Models.Movie;
 import filmy.nelk.io.filmy.utils.MovieUtils;
 
@@ -54,7 +53,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         // Set movie views based on views and network data
         Picasso.with(mContext)
-                .load(MovieUtils.buildPosterPath(movie.getPosterPath()))
+                .load(MovieUtils.buildImagePath(movie.getPosterPath(), APIConfig.MDB_IMAGE_SIZE_S))
                 .into(poster);
 
         // Attach clickListener to this item

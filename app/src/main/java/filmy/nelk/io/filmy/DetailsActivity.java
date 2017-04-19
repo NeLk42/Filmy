@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import filmy.nelk.io.filmy.retrofit.APIConfig;
 import filmy.nelk.io.filmy.retrofit.Models.Movie;
 import filmy.nelk.io.filmy.utils.MovieUtils;
 
@@ -30,9 +31,15 @@ public class DetailsActivity extends AppCompatActivity {
     private void loadDetails(Intent storage) {
         Movie movie = (Movie) storage.getExtras().get("movie");
 
-        ImageView poster = (ImageView) findViewById(R.id.iv_details_poster);
+        ImageView backdrop = (ImageView) findViewById(R.id.iv_details_backdrop);
         Picasso.with(this)
-                .load(MovieUtils.buildPosterPath(movie.getPosterPath()))
+                .load(MovieUtils.buildImagePath(movie.getBackdropPath(), APIConfig.MDB_IMAGE_SIZE_L))
+                .into(backdrop);
+
+
+        ImageView poster = (ImageView) findViewById(R.id.fab_poster);
+        Picasso.with(this)
+                .load(MovieUtils.buildImagePath(movie.getPosterPath(), APIConfig.MDB_IMAGE_SIZE_S))
                 .into(poster);
 
         TextView title = (TextView) findViewById(R.id.tv_details_title);
