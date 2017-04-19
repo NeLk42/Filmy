@@ -6,12 +6,13 @@ import filmy.nelk.io.filmy.retrofit.APIConfig;
 
 public class MovieUtils {
 
-    public static String buildPosterPath(String path) {
+    public static String buildImagePath(String path, String size) {
         return Uri.parse(APIConfig.MDB_BASE_IMAGE_URL)
                 .buildUpon()
-                .appendPath(APIConfig.MDB_IMAGE_SIZE_S)
+                .appendPath(size)
                 .appendEncodedPath(path)
                 .build()
                 .toString();
     }
+
 }

@@ -11,7 +11,8 @@ public class APIConfig {
 
     public static final String MDB_BASE_IMAGE_URL   = "https://image.tmdb.org/t/p/";
     public static final String MDB_IMAGE_SIZE_S     = "w185";
-    public static final String MDB_IMAGE_SIZE_L     = "w500";
+    public static final String MDB_IMAGE_SIZE_M     = "w500";
+    public static final String MDB_IMAGE_SIZE_L     = "w1000";
 
 
 }
