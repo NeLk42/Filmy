@@ -21,13 +21,14 @@ public class MovieDBAPI implements Callback<MoviesList>{
 
     public List<Movie> moviesList;
     public MovieAdapter mAdapter;
+    private String mSorting;
 
-    public void getPopular(MovieAdapter adapter, List<Movie> rvList) {
+    public void getMovies(MovieAdapter adapter, List<Movie> rvList) {
         this.mAdapter = adapter;
         this.moviesList = rvList;
 
         MovieDBService mDBService = getMovieDBService();
-        Call<MoviesList> call = mDBService.loadPopularMovies(APIConfig.MDB_API_KEY);
+        Call<MoviesList> call = mDBService.loadMovies(resolveSorting(), APIConfig.MDB_API_KEY);
         call.enqueue(this);
     }
 
@@ -64,5 +65,14 @@ public class MovieDBAPI implements Callback<MoviesList>{
     public void onFailure(Call<MoviesList> call, Throwable t) {
         Log.d(TAG, "onFailure");
         t.printStackTrace();
+    }
+
+    public String resolveSorting() {
+        if (mSorting != null && mSorting.equals(APIConfig.MDB_POPULAR)){
+            mSorting = APIConfig.MDB_TOP_RATED;
+            return mSorting;
+        }
+        mSorting = APIConfig.MDB_POPULAR;
+        return mSorting;
     }
 }
