@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity{
         int itemId = item.getItemId();
         switch (itemId){
             case R.id.menu_sort:
-
                 mAdapter = new MovieAdapter(this, movies);
                 mRecyclerView.setAdapter(mAdapter);
                 movieDBAPI.getMovies(mAdapter, movies);

@@ -14,5 +14,4 @@ public class MovieUtils {
                 .build()
                 .toString();
     }
-
 }
