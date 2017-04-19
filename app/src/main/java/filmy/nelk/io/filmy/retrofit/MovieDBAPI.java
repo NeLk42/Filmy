@@ -33,14 +33,12 @@ public class MovieDBAPI implements Callback<MoviesList>{
     }
 
     private MovieDBService getMovieDBService() {
-        Log.d(TAG, "Getting Service");
         Retrofit retrofit = getRetrofit();
         return retrofit.create(MovieDBService.class);
     }
 
     @NonNull
     private Retrofit getRetrofit() {
-        Log.d(TAG, "Getting Retrofit");
         return new Retrofit.Builder()
                     .baseUrl(APIConfig.MDB_BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
@@ -63,7 +61,6 @@ public class MovieDBAPI implements Callback<MoviesList>{
 
     @Override
     public void onFailure(Call<MoviesList> call, Throwable t) {
-        Log.d(TAG, "onFailure");
         t.printStackTrace();
     }
 
