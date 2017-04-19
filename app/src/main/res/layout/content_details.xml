@@ -18,42 +18,42 @@
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
             android:layout_height="wrap_content"
-            tools:image="Backdrop"
+            tools:image="@string/backdrop"
             />
 
         <ImageView
             android:id="@+id/iv_details_poster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:image="Poster"
+            tools:image="@string/poster"
             />
 
         <TextView
             android:id="@+id/tv_details_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Title"
+            tools:text="@string/title"
             />
 
         <TextView
             android:id="@+id/tv_details_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="8.4"
+            tools:text="@string/rating"
             />
 
         <TextView
             android:id="@+id/tv_details_release"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="21 May 2017"
+            tools:text="@string/release_date"
             />
 
         <TextView
             android:id="@+id/tv_details_overview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Lorem ipsum dolor sit amet"
+            tools:text="@string/synapse"
             />
 
     </LinearLayout>

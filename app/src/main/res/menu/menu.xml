@@ -5,6 +5,6 @@
     <item
         android:id="@+id/menu_sort"
         android:orderInCategory="1"
-        android:title="Popular/Top"
+        android:title="@string/popular_vs_top_rated"
         app:showAsAction="ifRoom"/>
 </menu>

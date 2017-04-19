@@ -61,7 +61,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, DetailsActivity.class);
-                intent.putExtra("movie", movie);
+                intent.putExtra(APIConfig.PARAM_MOVIE, movie);
                 mContext.startActivity(intent);
             }
         });

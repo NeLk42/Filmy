@@ -21,7 +21,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         Intent storage = getIntent();
 
-        if (storage.hasExtra("movie")){
+        if (storage.hasExtra(APIConfig.PARAM_MOVIE)){
             loadDetails(storage);
         } else {
             startActivity(new Intent(this, MainActivity.class));
@@ -29,13 +29,12 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void loadDetails(Intent storage) {
-        Movie movie = (Movie) storage.getExtras().get("movie");
+        Movie movie = (Movie) storage.getExtras().get(APIConfig.PARAM_MOVIE);
 
         ImageView backdrop = (ImageView) findViewById(R.id.iv_details_backdrop);
         Picasso.with(this)
                 .load(MovieUtils.buildImagePath(movie.getBackdropPath(), APIConfig.MDB_IMAGE_SIZE_L))
                 .into(backdrop);
-
 
         ImageView poster = (ImageView) findViewById(R.id.fab_poster);
         Picasso.with(this)

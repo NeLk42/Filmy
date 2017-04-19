@@ -15,5 +15,7 @@ public class APIConfig {
     public static final String MDB_IMAGE_SIZE_M     = "w500";
     public static final String MDB_IMAGE_SIZE_L     = "w1000";
 
+    public static final String PARAM_MOVIE          = "movie";
+    public static final String PARAM_SORTING        = "sorting";
 
 }

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Filmy</string>
     <string name="title_activity_details">Details</string>
+    <string name="popular_vs_top_rated">Popular/Top</string>
+    <string name="title">Title</string>
+    <string name="rating">8.4</string>
+    <string name="release_date">21 May 2017</string>
+    <string name="synapse">Lorem ipsum dolor sit amet</string>
+    <string name="poster">Poster</string>
+    <string name="backdrop">Backdrop</string>
 </resources>
